@@ -1,3 +1,49 @@
 venv/
 .env
 tests/__pycache__
+agents/__pycache__
+utils/__pycache__
+__pycache__/
+
+
+# nextjs
+
+# dependencies
+app/node_modules
+app/.pnp
+app/.pnp.*
+app/.yarn/*
+!app/.yarn/patches
+!app/.yarn/plugins
+!app/.yarn/releases
+!app/.yarn/versions
+
+# testing
+app/coverage
+
+# next.js
+app/.next/
+app/out/
+
+# production
+app/build
+
+# misc
+app/.DS_Store
+app/*.pem
+
+# debug
+app/npm-debug.log*
+app/yarn-debug.log*
+app/yarn-error.log*
+app/.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+app/.env*
+
+# vercel
+app/.vercel
+
+# typescript
+app/*.tsbuildinfo
+app/next-env.d.ts

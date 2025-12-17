@@ -1,0 +1,16 @@
+python-dotenv
+redis
+sqlalchemy
+psycopg2-binary
+langgraph
+langchain-core
+langchain-openai
+langchain-community
+langchain-google-genai
+pymupdf
+sentence-transformers
+pinecone
+pytest
+fastapi
+uvicorn
+python-multipart
