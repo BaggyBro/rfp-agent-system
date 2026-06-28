@@ -63,7 +63,7 @@ def sales_agent(state: RFPState, redis_client=None) -> RFPState:
     # Use LLM for intelligent abstract generation
     logger.info("[SALES AGENT] Generating abstract using Gemini Flash 2.5...")
     abstract = generate_summary(raw_text, max_words=140)
-    logger.info(f"[SALES AGENT] Generated abstract: {abstract[:100]}...")
+    logger.info(f"[SALES AGENT] LLM response received (abstract generated, {len(abstract)} chars)")
     
     # Cache to Redis
     cache_key_chunks = f"rfp:{rfp_id}:chunks"

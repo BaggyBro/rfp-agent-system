@@ -61,7 +61,7 @@ def comparison_agent(state: RFPState, redis_client=None) -> RFPState:
             "Explain why these products are ranked in this order. Provide reasoning for the top recommendation considering technical fit, pricing, and value.",
             context=comparison_context
         )
-        logger.info(f"[COMPARISON AGENT] LLM ranking explanation: {explanation[:100]}...")
+        logger.info(f"[COMPARISON AGENT] LLM response received (ranking explanation, {len(explanation)} chars)")
     else:
         explanation = "No products to compare."
 

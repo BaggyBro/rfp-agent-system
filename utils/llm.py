@@ -85,7 +85,7 @@ Return ONLY valid JSON with the extracted fields.""")
                 content = content[4:]
         content = content.strip()
         result = json.loads(content)
-        logger.debug(f"[LLM] Extracted structured data: {result}")
+        logger.debug(f"[LLM] Extracted structured data ({len(result)} fields)")
         return result
     except Exception as e:
         logger.error(f"[LLM] Failed to extract structured data: {str(e)}")
@@ -126,7 +126,7 @@ Summary:""")
     try:
         response = chain.invoke({"text": text, "max_words": max_words})
         summary = response.content.strip()
-        logger.debug(f"[LLM] Generated summary ({len(summary)} chars)")
+        logger.info(f"[LLM] Response received (summary generated, {len(summary)} chars)")
         return summary
     except Exception as e:
         logger.error(f"[LLM] Failed to generate summary: {str(e)}")
@@ -168,7 +168,9 @@ def analyze_with_llm(
     chain = prompt | llm
     try:
         response = chain.invoke({"prompt": full_prompt})
-        return response.content.strip()
+        result = response.content.strip()
+        logger.info(f"[LLM] Response received (analysis, {len(result)} chars)")
+        return result
     except Exception as e:
         logger.error(f"[LLM] Analysis failed: {str(e)}")
         return ""

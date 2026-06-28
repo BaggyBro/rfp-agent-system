@@ -79,7 +79,7 @@ def risk_compliance_agent(state: RFPState, redis_client=None) -> RFPState:
             context=risk_context
         )
         report["llm_risk_analysis"] = risk_analysis
-        logger.info(f"[RISK & COMPLIANCE AGENT] LLM risk analysis: {risk_analysis[:100]}...")
+        logger.info(f"[RISK & COMPLIANCE AGENT] LLM response received (risk analysis, {len(risk_analysis)} chars)")
 
     cache_key = f"rfp:{rfp_id}:risk"
     cache_json(redis_client, cache_key, report)

@@ -86,8 +86,7 @@ def master_agent(state: RFPState, redis_client=None) -> RFPState:
     
     logger.info("[MASTER AGENT] Using Gemini Flash 2.5 to generate comprehensive recommendation...")
     recommendation = _compose_recommendation(state)
-    logger.info(f"[MASTER AGENT] Generated final recommendation:")
-    logger.info(f"[MASTER AGENT] {recommendation}")
+    logger.info(f"[MASTER AGENT] LLM response received (recommendation generated, {len(recommendation)} chars)")
     
     updated: RFPState = {
         **state,

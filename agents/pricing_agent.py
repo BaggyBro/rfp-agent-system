@@ -74,7 +74,7 @@ def pricing_agent(state: RFPState, redis_client=None) -> RFPState:
             context=pricing_context
         )
         summary["llm_analysis"] = analysis
-        logger.info(f"[PRICING AGENT] LLM pricing analysis: {analysis[:100]}...")
+        logger.info(f"[PRICING AGENT] LLM response received (pricing analysis, {len(analysis)} chars)")
 
     cache_key = f"rfp:{rfp_id}:pricing"
     cache_json(redis_client, cache_key, summary)
